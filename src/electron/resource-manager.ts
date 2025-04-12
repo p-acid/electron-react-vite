@@ -3,6 +3,8 @@ import { statfsSync } from "fs";
 import { cpus } from "os";
 import { cpuUsage, freememPercentage, totalmem } from "os-utils";
 
+import { ipcWebContentsSend } from "./util.js";
+
 const POLLING_INTERVAL = 500;
 
 export function pollResources(mainWindow: BrowserWindow) {
@@ -11,7 +13,7 @@ export function pollResources(mainWindow: BrowserWindow) {
     const ramUsage = getRamUsage();
     const storageData = getStorageData();
 
-    mainWindow.webContents.send("statistics", {
+    ipcWebContentsSend("statistics", mainWindow.webContents, {
       cpuUsage,
       ramUsage,
       storageUsage: storageData.usage,
@@ -19,7 +21,7 @@ export function pollResources(mainWindow: BrowserWindow) {
   }, POLLING_INTERVAL);
 }
 
-function getCpuUsage() {
+function getCpuUsage(): Promise<number> {
   return new Promise((resolve) => {
     cpuUsage(resolve);
   });

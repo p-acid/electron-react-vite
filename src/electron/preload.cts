@@ -1,13 +1,10 @@
-import { ipcRenderer } from "electron";
+import { ipcInvoke, ipcOn } from "./util";
 
 const { contextBridge } = require("electron");
 
 contextBridge.exposeInMainWorld("electron", {
-  subscribeStatistics: (callback: (statistics: any) => void) => {
-    ipcRenderer.on("statistics", (_event, stats) => {
-      callback(stats);
-    });
-    callback({});
+  subscribeStatistics: (callback) => {
+    ipcOn("statistics", callback);
   },
-  getStaticData: () => ipcRenderer.invoke("getStaticData"),
-});
+  getStaticData: () => ipcInvoke("getStaticData"),
+} satisfies Window["electron"]);

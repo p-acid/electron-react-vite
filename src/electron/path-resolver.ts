@@ -9,3 +9,7 @@ export function getPreloadPath() {
     "/dist-electron/preload.cjs"
   );
 }
+
+export function getUIPath(): string {
+  return join(app.getAppPath(), "/dist-react/index.html");
+}
