@@ -1,4 +1,10 @@
-import { ipcMain, ipcRenderer, WebContents, WebFrameMain } from "electron";
+import {
+  ipcMain,
+  ipcRenderer,
+  IpcRendererEvent,
+  WebContents,
+  WebFrameMain,
+} from "electron";
 import { getUIPath } from "./path-resolver.js";
 import { pathToFileURL } from "url";
 
@@ -36,7 +42,10 @@ export function ipcOn<Key extends keyof EventPayloadMappding>(
   key: Key,
   callback: (payload: EventPayloadMappding[Key]) => void
 ) {
-  ipcRenderer.on(key, (_, payload) => callback(payload));
+  const cb = (_: IpcRendererEvent, payload: EventPayloadMappding[Key]) =>
+    callback(payload);
+  ipcRenderer.on(key, cb);
+  return () => ipcRenderer.off(key, cb);
 }
 
 export function validateEventFrame(frame: WebFrameMain) {
