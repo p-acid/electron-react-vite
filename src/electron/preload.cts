@@ -1,8 +1,24 @@
-import { ipcInvoke, ipcOn } from "./util";
+const electron = require("electron");
 
-const { contextBridge } = require("electron");
-
-contextBridge.exposeInMainWorld("electron", {
+electron.contextBridge.exposeInMainWorld("electron", {
   subscribeStatistics: (callback) => ipcOn("statistics", callback),
   getStaticData: () => ipcInvoke("getStaticData"),
 } satisfies Window["electron"]);
+
+export function ipcInvoke<Key extends keyof EventPayloadMappding>(
+  key: Key
+): Promise<EventPayloadMappding[Key]> {
+  return electron.ipcRenderer.invoke(key);
+}
+
+export function ipcOn<Key extends keyof EventPayloadMappding>(
+  key: Key,
+  callback: (payload: EventPayloadMappding[Key]) => void
+) {
+  const cb = (
+    _: Electron.IpcRendererEvent,
+    payload: EventPayloadMappding[Key]
+  ) => callback(payload);
+  electron.ipcRenderer.on(key, cb);
+  return () => electron.ipcRenderer.off(key, cb);
+}
