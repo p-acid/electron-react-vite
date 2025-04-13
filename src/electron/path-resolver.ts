@@ -13,3 +13,7 @@ export function getPreloadPath() {
 export function getUIPath(): string {
   return join(app.getAppPath(), "/dist-react/index.html");
 }
+
+export function getAssetPath(): string {
+  return join(app.getAppPath(), isDev() ? "." : "..", "src/assets");
+}
