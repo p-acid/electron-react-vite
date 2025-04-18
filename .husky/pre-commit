@@ -1,0 +1,10 @@
+echo "👀 스테이징 된 파일을 검사합니다."
+
+npx lint-staged --quiet
+
+if [ $? -eq 0 ]; then
+  echo "✅ 파일 검사가 성공적으로 완료되었습니다!"
+else
+  echo "❌ 파일 검사에 실패했습니다. 수정 후 다시 시도하세요!"
+  exit 1
+fi
