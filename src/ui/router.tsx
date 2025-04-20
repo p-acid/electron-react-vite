@@ -1,16 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import App from "./App";
-import { HelloPage } from "./HelloPage";
+import { pageRoutes } from "./constants/page-routes";
+import HomePage from "./pages/home";
+import SignInPage from "./pages/sign-in";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    path: pageRoutes.signIn,
+    element: <SignInPage />,
   },
   {
-    path: "/hello",
-    element: <HelloPage />,
+    path: pageRoutes.home,
+    element: <HomePage />,
   },
 ]);
 
