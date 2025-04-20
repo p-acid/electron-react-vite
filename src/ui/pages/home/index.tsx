@@ -1,9 +1,7 @@
+import { homePageWrapper } from "./style.css";
+
 function HomePage() {
-  return (
-    <div>
-      <h1>HomePage Component</h1>
-    </div>
-  );
+  return <main className={homePageWrapper}>Home Page</main>;
 }
 
 export default HomePage;
