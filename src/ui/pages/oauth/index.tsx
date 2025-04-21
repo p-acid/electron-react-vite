@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
+import * as styles from "./style.css";
+
 import { pageRoutes } from "@/ui/constants/page-routes";
 import { supabase } from "@/ui/libs/supabase/base";
-
-import * as styles from "./style.css";
 
 function OauthPage() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function OauthPage() {
           const { data, error } = await supabase.auth.getSession();
 
           if (error) {
-            navigate(pageRoutes.signIn);
+            navigate(pageRoutes.signIn, { replace: true });
           }
 
           if (data.session) {
@@ -27,7 +27,7 @@ function OauthPage() {
         }
       } catch (error) {
         console.error("Error during OAuth callback:", error);
-        navigate(pageRoutes.signIn);
+        navigate(pageRoutes.signIn, { replace: true });
       }
     };
 

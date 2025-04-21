@@ -24,7 +24,7 @@ function SignInPage() {
         </Card.Header>
         <Card.Body>
           <Button size="md" onClick={signInWithGoogle}>
-            GitHub로 로그인
+            Sign In with Google
           </Button>
         </Card.Body>
       </Card>

@@ -1,25 +1,34 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import { pageRoutes } from "./constants/page-routes";
+import { pageRoutes } from "../constants/page-routes";
 import {
   ErrorPage,
   HomePage,
   NotFoundPage,
   OauthPage,
   SignInPage,
-} from "./pages";
+} from "../pages";
+import AuthProtected from "./auth-protected";
+import Providers from "./providers";
 
 const router = createBrowserRouter([
   {
+    element: <Providers />,
     errorElement: <ErrorPage />,
     children: [
       {
+        element: <AuthProtected />,
+        children: [
+          {
+            path: pageRoutes.home,
+            element: <HomePage />,
+          },
+        ],
+      },
+
+      {
         path: pageRoutes.signIn,
         element: <SignInPage />,
-      },
-      {
-        path: pageRoutes.home,
-        element: <HomePage />,
       },
       {
         path: pageRoutes.oauth,
