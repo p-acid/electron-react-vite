@@ -1,8 +1,18 @@
-import { Button, Card } from "../../components";
+import { Button, Card } from "@/ui/components";
+import { supabase } from "@/ui/libs/supabase/base";
 
 import * as styles from "./style.css";
 
 function SignInPage() {
+  const signInWithGoogle = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/oauth`,
+      },
+    });
+  };
+
   return (
     <main className={styles.pageWrapper}>
       <Card>
@@ -13,7 +23,9 @@ function SignInPage() {
           </Card.Description>
         </Card.Header>
         <Card.Body>
-          <Button size="md">GitHub로 로그인</Button>
+          <Button size="md" onClick={signInWithGoogle}>
+            GitHub로 로그인
+          </Button>
         </Card.Body>
       </Card>
     </main>

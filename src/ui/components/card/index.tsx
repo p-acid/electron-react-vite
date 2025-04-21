@@ -4,9 +4,9 @@ import * as styles from "./style.css";
 
 const Card = Object.assign(
   forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-    ({ children, className, ...props }) => {
+    ({ children, className, ...props }, ref) => {
       return (
-        <div className={clsx(styles.card, className)} {...props}>
+        <div ref={ref} className={clsx(styles.card, className)} {...props}>
           {children}
         </div>
       );
