@@ -30,13 +30,14 @@ export const footer = style({
 });
 
 export const title = style({
-  fontSize: "1.25rem",
-  fontWeight: "600",
+  fontSize: "1.125rem",
+  fontWeight: 500,
   color: "#E0E0E0",
   margin: 0,
 });
 
 export const description = style({
   fontSize: "1rem",
+  fontWeight: 400,
   color: "#909090",
 });
