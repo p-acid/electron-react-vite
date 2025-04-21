@@ -2,6 +2,7 @@ import { globalStyle } from "@vanilla-extract/css";
 
 import "./layers.css";
 import "./reset.css";
+import "./font.css";
 
 globalStyle("body", {
   backgroundColor: "#121212",

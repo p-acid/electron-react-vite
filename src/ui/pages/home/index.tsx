@@ -1,7 +1,11 @@
-import { homePageWrapper } from "./style.css";
+import { pageRoutes } from "../../constants/page-routes";
 
 function HomePage() {
-  return <main className={homePageWrapper}>Home Page</main>;
+  return (
+    <main>
+      Home<a href={pageRoutes.signIn}>로그인 페이지로</a>
+    </main>
+  );
 }
 
 export default HomePage;
