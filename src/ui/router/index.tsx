@@ -9,11 +9,11 @@ import {
   SignInPage,
 } from "../pages";
 import AuthProtected from "./auth-protected";
-import Providers from "./providers";
+import RootContainer from "./root-container";
 
 const router = createBrowserRouter([
   {
-    element: <Providers />,
+    element: <RootContainer />,
     errorElement: <ErrorPage />,
     children: [
       {

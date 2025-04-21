@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "sonner";
 
 import * as styles from "./style.css";
 
@@ -10,6 +11,11 @@ function OauthPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const handleOAuthError = () => {
+      navigate(pageRoutes.signIn);
+      toast.error("로그인에 실패했습니다. 잠시 후 다시 시도해주세요.");
+    };
+
     const handleOAuthCallback = async () => {
       try {
         const hashParams = window.location.hash;
@@ -18,16 +24,19 @@ function OauthPage() {
           const { data, error } = await supabase.auth.getSession();
 
           if (error) {
-            navigate(pageRoutes.signIn, { replace: true });
+            handleOAuthError();
+            return;
           }
 
           if (data.session) {
-            navigate(pageRoutes.home, { replace: true });
+            console.log("Logged in successfully");
+            navigate(pageRoutes.home);
+            toast.success("로그인 되었습니다.");
           }
         }
       } catch (error) {
-        console.error("Error during OAuth callback:", error);
-        navigate(pageRoutes.signIn, { replace: true });
+        console.error("OAuth error:", error);
+        handleOAuthError();
       }
     };
 

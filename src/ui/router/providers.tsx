@@ -1,12 +1,8 @@
-import { Outlet } from "react-router";
 import { SessionProvider } from "../contexts/session-context";
+import { PropsWithChildren } from "react";
 
-function Providers() {
-  return (
-    <SessionProvider>
-      <Outlet />
-    </SessionProvider>
-  );
+function Providers({ children }: PropsWithChildren) {
+  return <SessionProvider>{children}</SessionProvider>;
 }
 
 export default Providers;
