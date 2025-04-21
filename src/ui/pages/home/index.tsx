@@ -1,4 +1,4 @@
-import { pageRoutes } from "../../constants/page-routes";
+import { pageRoutes } from "@/ui/constants/page-routes";
 
 function HomePage() {
   return (
