@@ -30,7 +30,7 @@ function OauthPage() {
 
           if (data.session) {
             navigate(pageRoutes.home);
-            toast.success("로그인 되었습니다.");
+            toast.success("Sign in successful");
           }
         }
       } catch (error) {
@@ -44,7 +44,7 @@ function OauthPage() {
 
   return (
     <main className={styles.pageWrapper}>
-      <h2>로그인 처리 중...</h2>
+      <h2>Loading...</h2>
     </main>
   );
 }

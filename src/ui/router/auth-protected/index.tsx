@@ -1,9 +1,10 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate } from "react-router";
 
 import { pageRoutes } from "@/ui/constants/page-routes";
 import { useSession } from "@/ui/contexts/session-context/use-session";
+import { PropsWithChildren } from "react";
 
-function AuthProtected() {
+function AuthProtected({ children }: PropsWithChildren) {
   const { session } = useSession();
 
   if (session === undefined) {
@@ -14,7 +15,7 @@ function AuthProtected() {
     return <Navigate to={pageRoutes.signIn} replace />;
   }
 
-  return <Outlet />;
+  return children;
 }
 
 export default AuthProtected;

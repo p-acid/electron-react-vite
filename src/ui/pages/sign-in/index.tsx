@@ -17,10 +17,8 @@ function SignInPage() {
     <main className={styles.pageWrapper}>
       <Card.Root>
         <Card.Header>
-          <Card.Title>환영합니다!</Card.Title>
-          <Card.Description>
-            플랫폼을 선택하여 로그인 해주세요.
-          </Card.Description>
+          <Card.Title>Welcome!</Card.Title>
+          <Card.Description>Choose platform to sign in</Card.Description>
         </Card.Header>
         <Card.Body>
           <Button size="md" onClick={signInWithGoogle}>

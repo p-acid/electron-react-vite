@@ -10,6 +10,7 @@ import {
 } from "../pages";
 import AuthProtected from "./auth-protected";
 import RootContainer from "./root-container";
+import { SidebarLayout } from "../components";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        element: <AuthProtected />,
+        element: (
+          <AuthProtected>
+            <SidebarLayout />
+          </AuthProtected>
+        ),
         children: [
           {
             path: pageRoutes.home,

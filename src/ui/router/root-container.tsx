@@ -7,7 +7,7 @@ function RootContainer() {
   return (
     <Providers>
       <Outlet />
-      <Toaster />
+      <Toaster richColors />
     </Providers>
   );
 }

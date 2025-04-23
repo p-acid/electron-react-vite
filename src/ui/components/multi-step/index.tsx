@@ -104,10 +104,10 @@ function Navigation() {
   return (
     <div className={styles.navigation}>
       <Button disabled={isFirstStep} onClick={prev}>
-        이전
+        Prev
       </Button>
       <Button disabled={isLastStep} onClick={next}>
-        다음
+        Next
       </Button>
     </div>
   );
