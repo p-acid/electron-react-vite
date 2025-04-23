@@ -29,10 +29,11 @@ export const goalItem = style({
   borderRadius: "0.5rem",
   border: "1px solid #2F2F2F",
   cursor: "pointer",
-  transition: "border-color 0.2s ease",
+  transition: "all 0.2s ease",
 
   ":hover": {
-    borderColor: "#3F3F3F",
+    borderColor: "#3B82F6",
+    transform: "translateY(-2px)",
   },
 });
 

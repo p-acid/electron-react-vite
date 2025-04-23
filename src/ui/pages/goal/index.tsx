@@ -8,7 +8,7 @@ interface Goal {
   title: string;
   description: string;
   deadline: string;
-  method: "mandarat" | "okr";
+  method: "mandalart" | "okr";
 }
 
 // 임시 데이터
@@ -19,7 +19,7 @@ const goals: Goal[] = [
     description:
       "Enhance frontend development skills and learn new technologies",
     deadline: "2024-12-31",
-    method: "mandarat",
+    method: "mandalart",
   },
   {
     id: "2",
@@ -29,7 +29,6 @@ const goals: Goal[] = [
     deadline: "2024-06-30",
     method: "okr",
   },
-  // ... more goal data
 ];
 
 function GoalPage() {
@@ -59,7 +58,7 @@ function GoalPage() {
               <div className={styles.goalHeader}>
                 <h2 className={styles.goalTitle}>{goal.title}</h2>
                 <span className={styles.methodBadge}>
-                  {goal.method === "mandarat" ? "Mandarat" : "OKR"}
+                  {goal.method === "mandalart" ? "Mandalart" : "OKR"}
                 </span>
               </div>
               <p className={styles.goalDescription}>{goal.description}</p>
