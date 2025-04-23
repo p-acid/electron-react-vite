@@ -5,7 +5,7 @@ const baseStyle = style({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  borderRadius: "0.375rem",
+  borderRadius: "0.5rem",
   fontWeight: "500",
   transition: "all 0.1s ease-in-out",
   cursor: "pointer",
@@ -24,7 +24,6 @@ const baseStyle = style({
 
   ":disabled": {
     backgroundColor: "#93C5FD",
-    cursor: "not-allowed",
     opacity: 0.7,
   },
 });
@@ -35,15 +34,18 @@ export const button = recipe({
   variants: {
     size: {
       sm: {
-        padding: "0.375rem 0.75rem",
+        height: "32px",
+        padding: "0 0.75rem",
         fontSize: "0.75rem",
       },
       md: {
-        padding: "0.5rem 1rem",
+        height: "40px",
+        padding: "0 1rem",
         fontSize: "0.875rem",
       },
       lg: {
-        padding: "0.75rem 1.5rem",
+        height: "48px",
+        padding: "0 1.5rem",
         fontSize: "1rem",
       },
     },
