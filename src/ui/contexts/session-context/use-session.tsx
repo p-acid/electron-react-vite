@@ -2,7 +2,7 @@ import { Session } from "@supabase/supabase-js";
 import { createContext, useContext } from "react";
 
 export const SessionContext = createContext<{
-  session: Session | null;
+  session: Session | null | undefined;
 }>({
   session: null,
 });
@@ -13,5 +13,6 @@ export function useSession() {
   if (!context) {
     throw new Error("useSession must be used within a SessionProvider");
   }
+
   return context;
 }

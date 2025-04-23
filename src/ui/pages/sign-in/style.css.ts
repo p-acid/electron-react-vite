@@ -6,4 +6,5 @@ export const pageWrapper = style({
   alignItems: "center",
   width: "100%",
   minHeight: "100vh",
+  padding: "2rem",
 });

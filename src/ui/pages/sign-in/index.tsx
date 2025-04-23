@@ -15,7 +15,7 @@ function SignInPage() {
 
   return (
     <main className={styles.pageWrapper}>
-      <Card>
+      <Card.Root>
         <Card.Header>
           <Card.Title>환영합니다!</Card.Title>
           <Card.Description>
@@ -27,7 +27,7 @@ function SignInPage() {
             Sign In with Google
           </Button>
         </Card.Body>
-      </Card>
+      </Card.Root>
     </main>
   );
 }

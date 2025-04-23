@@ -4,8 +4,9 @@ export const card = style({
   border: "1px solid #1F1F1F",
   borderRadius: "0.5rem",
   backgroundColor: "#181818",
-  boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.5)",
+  boxShadow: "0 1px 3px 0 rgba(56, 56, 56, 0.2)",
   overflow: "hidden",
+  width: "100%",
 });
 
 export const header = style({

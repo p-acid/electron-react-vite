@@ -4,7 +4,7 @@ import { supabase } from "@/ui/libs/supabase/base";
 import { SessionContext } from "./use-session";
 
 export const SessionProvider = ({ children }: PropsWithChildren) => {
-  const [session, setSession] = useState<Session | null>(null);
+  const [session, setSession] = useState<Session | null | undefined>();
 
   useEffect(() => {
     const authStateListener = supabase.auth.onAuthStateChange(

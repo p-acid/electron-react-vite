@@ -1,12 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-export const wrapper = style({
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  gap: "2rem",
-});
-
 export const header = style({
   display: "flex",
   alignItems: "center",
@@ -20,8 +13,8 @@ export const step = style({
 });
 
 export const stepIndicator = style({
-  width: "2rem",
-  height: "2rem",
+  width: "1.5rem",
+  height: "1.5rem",
   borderRadius: "50%",
   display: "flex",
   alignItems: "center",

@@ -6,7 +6,11 @@ import { useSession } from "@/ui/contexts/session-context/use-session";
 function AuthProtected() {
   const { session } = useSession();
 
-  if (!session) {
+  if (session === undefined) {
+    return <div>Loading...</div>;
+  }
+
+  if (session === null) {
     return <Navigate to={pageRoutes.signIn} replace />;
   }
 

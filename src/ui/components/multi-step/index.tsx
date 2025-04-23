@@ -37,11 +37,7 @@ function Root({ children, initialStep = 0 }: MultiStepRootProps) {
     goTo,
   };
 
-  return (
-    <StepContext.Provider value={value}>
-      <div className={styles.wrapper}>{children}</div>
-    </StepContext.Provider>
-  );
+  return <StepContext.Provider value={value}>{children}</StepContext.Provider>;
 }
 
 interface StepProps {
@@ -84,7 +80,7 @@ function StepIndicator({ step, title }: StepIndicatorProps) {
   const isCompleted = step < currentStep;
 
   return (
-    <div className={styles.step}>
+    <div className={clsx(styles.step, isCompleted && "completed")}>
       <div
         className={clsx(
           styles.stepIndicator,
@@ -107,17 +103,22 @@ function Navigation() {
 
   return (
     <div className={styles.navigation}>
-      {!isFirstStep && <Button onClick={prev}>이전</Button>}
-      {!isLastStep && <Button onClick={next}>다음</Button>}
+      <Button disabled={isFirstStep} onClick={prev}>
+        이전
+      </Button>
+      <Button disabled={isLastStep} onClick={next}>
+        다음
+      </Button>
     </div>
   );
 }
 
-const MultiStep = Object.assign(Root, {
+const MultiStep = {
+  Root,
   Step,
   Header: StepHeader,
   Indicator: StepIndicator,
   Navigation,
-});
+};
 
 export default MultiStep;

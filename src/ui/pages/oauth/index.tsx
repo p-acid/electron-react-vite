@@ -29,7 +29,6 @@ function OauthPage() {
           }
 
           if (data.session) {
-            console.log("Logged in successfully");
             navigate(pageRoutes.home);
             toast.success("로그인 되었습니다.");
           }
