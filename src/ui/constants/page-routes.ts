@@ -3,6 +3,8 @@ export const pageRoutes = {
   oauth: "/oauth",
   home: "/",
   notFound: "*",
+  goal: "/goal",
+  task: "/task",
 } as const;
 
 export type PageRoutes = typeof pageRoutes;

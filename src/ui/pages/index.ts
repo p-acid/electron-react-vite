@@ -3,5 +3,15 @@ import SignInPage from "./sign-in";
 import HomePage from "./home";
 import ErrorPage from "./error";
 import NotFoundPage from "./404";
+import GoalPage from "./goal";
+import TaskPage from "./task";
 
-export { OauthPage, SignInPage, HomePage, ErrorPage, NotFoundPage };
+export {
+  OauthPage,
+  SignInPage,
+  HomePage,
+  ErrorPage,
+  NotFoundPage,
+  GoalPage,
+  TaskPage,
+};

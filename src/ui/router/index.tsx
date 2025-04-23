@@ -3,10 +3,12 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { pageRoutes } from "../constants/page-routes";
 import {
   ErrorPage,
+  GoalPage,
   HomePage,
   NotFoundPage,
   OauthPage,
   SignInPage,
+  TaskPage,
 } from "../pages";
 import AuthProtected from "./auth-protected";
 import RootContainer from "./root-container";
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
           {
             path: pageRoutes.home,
             element: <HomePage />,
+          },
+          {
+            path: pageRoutes.goal,
+            element: <GoalPage />,
+          },
+          {
+            path: pageRoutes.task,
+            element: <TaskPage />,
           },
         ],
       },

@@ -1,26 +1,23 @@
 import { Link } from "react-router";
 
 import * as styles from "./style.css";
-import { Bell, CheckSquare, House, Target } from "lucide-react";
+import { CheckSquare, Goal, House } from "lucide-react";
+import { pageRoutes } from "@/ui/constants/page-routes";
 
 function Navigations() {
   return (
     <nav className={styles.nav}>
-      <Link to="/" className={styles.navItem}>
+      <Link to={pageRoutes.home} className={styles.navItem}>
         <House size={18} />
         <span>Home</span>
       </Link>
-      <Link to="/explore" className={styles.navItem}>
-        <Target size={18} />
-        <span>Targets</span>
+      <Link to={pageRoutes.goal} className={styles.navItem}>
+        <Goal size={18} />
+        <span>Goals</span>
       </Link>
-      <Link to="/messages" className={styles.navItem}>
+      <Link to={pageRoutes.task} className={styles.navItem}>
         <CheckSquare size={18} />
         <span>Tasks</span>
-      </Link>
-      <Link to="/notifications" className={styles.navItem}>
-        <Bell size={18} />
-        <span>Notification</span>
       </Link>
     </nav>
   );
