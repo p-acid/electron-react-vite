@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { pageRoutes } from "../constants/page-routes";
 import {
   CreateGoalPage,
+  CreateOkrPage,
   ErrorPage,
   GoalPage,
   HomePage,
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
           {
             path: pageRoutes.task,
             element: <TaskPage />,
+          },
+          {
+            path: pageRoutes.createOkr,
+            element: <CreateOkrPage />,
           },
         ],
       },

@@ -2,15 +2,10 @@ import { Grid3x3, Key } from "lucide-react";
 import * as styles from "./style.css";
 import { Button } from "@/ui/components";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { pageRoutes } from "@/ui/constants/page-routes";
 
 const methodOptions = [
-  {
-    id: "mandalart",
-    title: "Mandalart",
-    description:
-      "Achieve your goals through a systematic 3x3 grid approach. Break down your main goal into 8 sub-goals and create detailed action plans.",
-    icon: Grid3x3,
-  },
   {
     id: "okr",
     title: "OKR",
@@ -18,14 +13,34 @@ const methodOptions = [
       "Set ambitious Objectives and measure progress through Key Results. Perfect for tracking measurable outcomes and maintaining focus.",
     icon: Key,
   },
+  {
+    id: "mandalart",
+    title: "Mandalart",
+    description:
+      "Achieve your goals through a systematic 3x3 grid approach. Break down your main goal into 8 sub-goals and create detailed action plans.",
+    icon: Grid3x3,
+  },
 ];
 
 function CreateGoalPage() {
   const [framework, setFramework] =
     useState<(typeof methodOptions)[number]["id"]>();
 
+  const navigate = useNavigate();
+
   const handleMethodSelect = (methodId: string) => {
     setFramework(methodId);
+  };
+
+  const handleNext = () => {
+    const nextRoute: Record<(typeof methodOptions)[number]["id"], string> = {
+      okr: pageRoutes.createOkr,
+      mandalart: pageRoutes.createMandalart,
+    };
+
+    if (framework) {
+      navigate(nextRoute[framework]);
+    }
   };
 
   return (
@@ -61,7 +76,7 @@ function CreateGoalPage() {
         ))}
       </div>
 
-      {framework && <Button>Next</Button>}
+      {framework && <Button onClick={handleNext}>Next</Button>}
     </div>
   );
 }
