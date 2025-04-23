@@ -36,8 +36,6 @@ function UserPopover() {
     };
   }, []);
 
-  console.log(session?.user.user_metadata);
-
   return (
     <div className={styles.wrapper} ref={popoverRef}>
       <button className={styles.userProfile} onClick={() => setIsOpen(!isOpen)}>
