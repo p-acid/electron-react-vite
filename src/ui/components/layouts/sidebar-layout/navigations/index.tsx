@@ -1,24 +1,25 @@
 import { Link } from "react-router";
 
 import * as styles from "./style.css";
+import { Bell, CheckSquare, House, Target } from "lucide-react";
 
 function Navigations() {
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.navItem}>
-        <span className={styles.navIcon}>🏠</span>
+        <House size={18} />
         <span>Home</span>
       </Link>
       <Link to="/explore" className={styles.navItem}>
-        <span className={styles.navIcon}>🎯</span>
+        <Target size={18} />
         <span>Targets</span>
       </Link>
       <Link to="/messages" className={styles.navItem}>
-        <span className={styles.navIcon}>☑️</span>
+        <CheckSquare size={18} />
         <span>Tasks</span>
       </Link>
       <Link to="/notifications" className={styles.navItem}>
-        <span className={styles.navIcon}>🔔</span>
+        <Bell size={18} />
         <span>Notification</span>
       </Link>
     </nav>

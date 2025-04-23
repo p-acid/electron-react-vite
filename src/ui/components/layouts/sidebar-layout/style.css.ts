@@ -21,7 +21,7 @@ export const sidebar = style({
   height: "100vh",
   width: "240px",
   borderRight: "1px solid #2F2F2F",
-  padding: "1rem 1rem 2rem",
+  padding: "1rem",
   display: "flex",
   flexDirection: "column",
 });
