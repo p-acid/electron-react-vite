@@ -1,6 +1,7 @@
 import { Button } from "@/ui/components";
 import * as styles from "./style.css";
 import { useNavigate } from "react-router";
+import { pageRoutes } from "@/ui/constants/page-routes";
 
 interface Goal {
   id: string;
@@ -35,7 +36,7 @@ function GoalPage() {
   const navigate = useNavigate();
 
   const handleAddGoal = () => {
-    navigate("/goals/create");
+    navigate(pageRoutes.createGoal);
   };
 
   return (

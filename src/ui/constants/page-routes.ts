@@ -4,6 +4,7 @@ export const pageRoutes = {
   home: "/",
   notFound: "*",
   goal: "/goal",
+  createGoal: "/goal/create",
   task: "/task",
 } as const;
 

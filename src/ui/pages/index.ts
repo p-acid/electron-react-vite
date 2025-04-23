@@ -4,6 +4,7 @@ import HomePage from "./home";
 import ErrorPage from "./error";
 import NotFoundPage from "./404";
 import GoalPage from "./goal";
+import CreateGoalPage from "./create-goal";
 import TaskPage from "./task";
 
 export {
@@ -14,4 +15,5 @@ export {
   NotFoundPage,
   GoalPage,
   TaskPage,
+  CreateGoalPage,
 };

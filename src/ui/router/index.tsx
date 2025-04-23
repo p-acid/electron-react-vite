@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import { pageRoutes } from "../constants/page-routes";
 import {
+  CreateGoalPage,
   ErrorPage,
   GoalPage,
   HomePage,
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
           {
             path: pageRoutes.goal,
             element: <GoalPage />,
+          },
+          {
+            path: pageRoutes.createGoal,
+            element: <CreateGoalPage />,
           },
           {
             path: pageRoutes.task,
