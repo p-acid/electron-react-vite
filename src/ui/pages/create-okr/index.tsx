@@ -1,8 +1,11 @@
+import ObjectiveForm from "./objective-form";
+import * as styles from "./style.css";
+
 function CreateOkrPage() {
   return (
-    <div>
-      <h1>CreateOkrPage Component</h1>
-    </div>
+    <main className={styles.pageWrapper}>
+      <ObjectiveForm />
+    </main>
   );
 }
 
