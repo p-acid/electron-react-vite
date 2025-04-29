@@ -3,7 +3,7 @@ import { recipe } from "@vanilla-extract/recipes";
 
 export const stepper = style({
   display: "flex",
-  gap: "2.5rem",
+  gap: "2.25rem",
   alignItems: "center",
   padding: "0.75rem 0",
 });
@@ -11,7 +11,7 @@ export const stepper = style({
 export const step = style({
   display: "flex",
   alignItems: "center",
-  gap: "0.75rem",
+  gap: "0.625rem",
   position: "relative",
 });
 

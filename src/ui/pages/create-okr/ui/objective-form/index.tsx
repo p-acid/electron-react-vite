@@ -1,35 +1,16 @@
-import { Code2, Brain, GraduationCap, Goal } from "lucide-react";
+import { Goal } from "lucide-react";
 import * as styles from "./style.css";
 import { Accordion, Form, Input, Textarea } from "@/ui/components";
 import { useFormContext } from "react-hook-form";
 import { OkrFormSchema } from "../../types/okr-form-schema";
-
-const examples = [
-  {
-    icon: Code2,
-    title: "개발자로서 한 단계 성장하기",
-    description:
-      "프론트엔드 개발 스킬을 향상시키고 새로운 기술을 습득하여 더 나은 개발자로 성장하기",
-  },
-  {
-    icon: Brain,
-    title: "건강한 루틴 확립하기",
-    description:
-      "규칙적인 운동과 식단 관리를 통해 건강한 생활 습관을 만들고 유지하기",
-  },
-  {
-    icon: GraduationCap,
-    title: "정보처리기사 자격증 취득하기",
-    description:
-      "체계적인 학습 계획을 수립하고 실천하여 정보처리기사 자격증 시험에 합격하기",
-  },
-];
+import Objective from "../objective";
+import { OBJECTIVE_EXAMPLES } from "../../constants/examples";
 
 function ObjectiveForm() {
   const { register } = useFormContext<OkrFormSchema>();
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <Accordion.Root>
         <Accordion.Item value="example">
           <Accordion.Trigger>
@@ -37,26 +18,15 @@ function ObjectiveForm() {
             목표 설정 예시
           </Accordion.Trigger>
           <Accordion.Content>
-            <p className={styles.exampleDescription}>
-              아래는 목표를 설정할 때 참고할 수 있는 몇 가지 예시입니다.
-              <br />
-              당신의 가치관과 비전에 맞게 목표를 설정하는 것이 중요하니, 예시를
-              통해 영감을 얻고 나만의 목표를 구체화해보세요.
+            <p className={styles.description}>
+              아래는 목표를 설정할 때 참고할 수 있는 몇 가지 예시입니다. 당신의
+              가치관과 비전에 맞게 목표를 설정하는 것이 중요하니, 예시를 통해
+              영감을 얻고 나만의 목표를 구체화해보세요.
             </p>
 
             <div className={styles.exampleList}>
-              {examples.map((example, index) => (
-                <div key={index} className={styles.exampleItem}>
-                  <div className={styles.iconWrapper}>
-                    <example.icon size={20} />
-                  </div>
-                  <div className={styles.exampleContent}>
-                    <h4 className={styles.exampleItemTitle}>{example.title}</h4>
-                    <p className={styles.exampleItemDescription}>
-                      {example.description}
-                    </p>
-                  </div>
-                </div>
+              {OBJECTIVE_EXAMPLES.map((example) => (
+                <Objective key={example.title} {...example} />
               ))}
             </div>
           </Accordion.Content>
@@ -84,7 +54,7 @@ function ObjectiveForm() {
           />
         </Form.Group>
       </div>
-    </div>
+    </section>
   );
 }
 

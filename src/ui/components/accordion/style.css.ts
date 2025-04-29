@@ -59,6 +59,9 @@ export const content = style({
 });
 
 export const contentInner = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.5rem",
   padding: "1.5rem",
 });
 

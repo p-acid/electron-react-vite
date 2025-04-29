@@ -5,6 +5,9 @@ import { Button, Stepper, useStepper } from "@/ui/components";
 import ObjectiveForm from "./ui/objective-form";
 import * as styles from "./style.css";
 import { okrFormSchema, OkrFormSchema } from "./types/okr-form-schema";
+import KeyResultsForm from "./ui/key-results-form";
+import Confirm from "./ui/confirm";
+import { useMemo } from "react";
 
 const STEPPER_MOCK = [
   {
@@ -27,7 +30,7 @@ const STEPPER_MOCK = [
         핵심 지표는(Key Results)는 목표를 달성했다고 생각할 수 있는 지표들이어야
         합니다.
         <br />
-        구체적인 기준과 수치를 정의해보세요.
+        작성한 목표를 달성하기 위한 구체적인 기준과 수치를 정의해보세요.
       </>
     ),
   },
@@ -56,6 +59,11 @@ function CreateOkrPage() {
 
   const { title, description } = STEPPER_MOCK[currentStep];
 
+  const stepComponents = useMemo(
+    () => [<ObjectiveForm />, <KeyResultsForm />, <Confirm />],
+    []
+  );
+
   return (
     <main className={styles.pageWrapper}>
       <Stepper.Root currentStep={currentStep}>
@@ -69,9 +77,7 @@ function CreateOkrPage() {
         <p className={styles.description}>{description}</p>
       </div>
 
-      <FormProvider {...methods}>
-        <ObjectiveForm />
-      </FormProvider>
+      <FormProvider {...methods}>{stepComponents[currentStep]}</FormProvider>
 
       <div className={styles.navigation}>
         <Button

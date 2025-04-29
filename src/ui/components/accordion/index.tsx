@@ -88,7 +88,7 @@ function AccordionTrigger({ children }: AccordionTriggerProps) {
       <span className={styles.triggerInner}>{children}</span>
       <ChevronDown
         className={styles.chevron}
-        size={16}
+        size={18}
         aria-hidden="true"
         style={{
           transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
