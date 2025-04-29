@@ -4,6 +4,7 @@ import { Button } from "@/ui/components";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { pageRoutes } from "@/ui/constants/page-routes";
+import FrameworkCard from "./ui/framework-card";
 
 const methodOptions = [
   {
@@ -23,23 +24,22 @@ const methodOptions = [
 ];
 
 function CreateGoalPage() {
-  const [framework, setFramework] =
-    useState<(typeof methodOptions)[number]["id"]>();
+  const [selectedFramework, setSelectedFramework] = useState<string>();
 
   const navigate = useNavigate();
 
-  const handleMethodSelect = (methodId: string) => {
-    setFramework(methodId);
+  const handleFrameworkSelect = (methodId: string) => {
+    setSelectedFramework(methodId);
   };
 
   const handleNext = () => {
-    const nextRoute: Record<(typeof methodOptions)[number]["id"], string> = {
+    const nextRoute: Record<string, string> = {
       okr: pageRoutes.createOkr,
       mandalart: pageRoutes.createMandalart,
     };
 
-    if (framework) {
-      navigate(nextRoute[framework]);
+    if (selectedFramework) {
+      navigate(nextRoute[selectedFramework]);
     }
   };
 
@@ -52,31 +52,18 @@ function CreateGoalPage() {
         </p>
       </header>
 
-      <div className={styles.methodGrid}>
-        {methodOptions.map((method) => (
-          <div
-            key={method.id}
-            className={styles.methodCard}
-            onClick={() => handleMethodSelect(method.id)}
-            data-selected={framework === method.id}
-            role="button"
-            tabIndex={0}
-          >
-            <div className={styles.methodHeader}>
-              <div className={styles.iconWrapper}>
-                <method.icon
-                  size={20}
-                  color={framework === method.id ? "#3B82F6" : "#E0E0E0"}
-                />
-              </div>
-              <h2 className={styles.methodTitle}>{method.title}</h2>
-            </div>
-            <p className={styles.methodDescription}>{method.description}</p>
-          </div>
+      <div className={styles.frameworkGrid}>
+        {methodOptions.map((framework) => (
+          <FrameworkCard
+            key={framework.id}
+            selected={selectedFramework === framework.id}
+            onClick={() => handleFrameworkSelect(framework.id)}
+            {...framework}
+          />
         ))}
       </div>
 
-      {framework && <Button onClick={handleNext}>Next</Button>}
+      {selectedFramework && <Button onClick={handleNext}>Next</Button>}
     </div>
   );
 }

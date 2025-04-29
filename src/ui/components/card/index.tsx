@@ -2,10 +2,18 @@ import { forwardRef, HTMLAttributes } from "react";
 import clsx from "clsx";
 import * as styles from "./style.css";
 
-const Root = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ children, className, ...props }, ref) => {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  selectable?: boolean;
+}
+
+const Root = forwardRef<HTMLDivElement, CardProps>(
+  ({ children, className, selectable, ...props }, ref) => {
     return (
-      <div ref={ref} className={clsx(styles.card, className)} {...props}>
+      <div
+        ref={ref}
+        className={clsx(styles.card({ selectable }), className)}
+        {...props}
+      >
         {children}
       </div>
     );

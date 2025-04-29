@@ -36,7 +36,7 @@ export const exampleItem = style({
   display: "flex",
   gap: "1rem",
   padding: "1.25rem",
-  backgroundColor: "#252525",
+  backgroundColor: "#1E2F28",
   borderRadius: "0.875rem",
 });
 
@@ -47,9 +47,9 @@ export const iconWrapper = style({
   flexShrink: 0,
   width: "2.5rem",
   height: "2.5rem",
-  backgroundColor: "#333333",
+  backgroundColor: "#2D3F38",
   borderRadius: "0.75rem",
-  color: "#60A5FA",
+  color: "#34D399",
 });
 
 export const exampleContent = style({
