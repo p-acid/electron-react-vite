@@ -30,16 +30,6 @@ function ObjectiveForm() {
 
   return (
     <div className={styles.container}>
-      <div>
-        <h2 className={styles.title}>목표 설정하기</h2>
-        <p className={styles.description}>
-          목표(Objective)는 당신이 진심으로 바라는 방향을 담아야 합니다.
-          <br />
-          구체적인 방법은 차차 찾아가면 되니, 먼저 마음을 움직이는 목표를
-          세워보세요.
-        </p>
-      </div>
-
       <Accordion.Root>
         <Accordion.Item value="example">
           <Accordion.Trigger>
@@ -73,25 +63,27 @@ function ObjectiveForm() {
         </Accordion.Item>
       </Accordion.Root>
 
-      <Form.Group>
-        <Form.Label htmlFor="objective" required>
-          목표
-        </Form.Label>
-        <Input
-          {...register("goal.title")}
-          id="objective"
-          placeholder="달성하고자 하는 목표를 입력하세요"
-        />
-      </Form.Group>
+      <div className={styles.form}>
+        <Form.Group>
+          <Form.Label htmlFor="objective" required>
+            목표
+          </Form.Label>
+          <Input
+            {...register("goal.title")}
+            id="objective"
+            placeholder="달성하고자 하는 목표를 입력하세요"
+          />
+        </Form.Group>
 
-      <Form.Group>
-        <Form.Label htmlFor="description">설명</Form.Label>
-        <Textarea
-          {...register("goal.description")}
-          id="description"
-          placeholder="목표에 대한 상세 설명을 입력하세요"
-        />
-      </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="description">설명</Form.Label>
+          <Textarea
+            {...register("goal.description")}
+            id="description"
+            placeholder="목표에 대한 상세 설명을 입력하세요"
+          />
+        </Form.Group>
+      </div>
     </div>
   );
 }

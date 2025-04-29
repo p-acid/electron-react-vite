@@ -9,15 +9,37 @@ import { okrFormSchema, OkrFormSchema } from "./types/okr-form-schema";
 const STEPPER_MOCK = [
   {
     id: 1,
-    label: "목표 설정",
+    title: "목표 설정",
+    description: (
+      <>
+        목표(Objective)는 당신이 진심으로 바라는 방향을 담아야 합니다.
+        <br />
+        구체적인 방법은 차차 찾아가면 되니, 먼저 마음을 움직이는 목표를
+        세워보세요.
+      </>
+    ),
   },
   {
     id: 2,
-    label: "핵심 지표 설정",
+    title: "핵심 지표 설정",
+    description: (
+      <>
+        핵심 지표는(Key Results)는 목표를 달성했다고 생각할 수 있는 지표들이어야
+        합니다.
+        <br />
+        구체적인 기준과 수치를 정의해보세요.
+      </>
+    ),
   },
   {
     id: 3,
-    label: "확인",
+    title: "확인하기",
+    description: (
+      <>
+        마지막으로 목표와 핵심 지표를 확인하며 둘 사이의 연관성이 어색하지
+        않은지 확인해보세요.
+      </>
+    ),
   },
 ];
 
@@ -32,13 +54,20 @@ function CreateOkrPage() {
     count,
   });
 
+  const { title, description } = STEPPER_MOCK[currentStep];
+
   return (
     <main className={styles.pageWrapper}>
       <Stepper.Root currentStep={currentStep}>
         {STEPPER_MOCK.map((step) => (
-          <Stepper.Step key={step.id}>{step.label}</Stepper.Step>
+          <Stepper.Step key={step.id}>{step.title}</Stepper.Step>
         ))}
       </Stepper.Root>
+
+      <div>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.description}>{description}</p>
+      </div>
 
       <FormProvider {...methods}>
         <ObjectiveForm />
