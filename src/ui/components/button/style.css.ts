@@ -10,21 +10,21 @@ const baseStyle = style({
   transition: "all 0.1s ease-in-out",
   cursor: "pointer",
   border: "none",
-  backgroundColor: "#2563EB",
-  color: "#ffffff",
+  backgroundColor: "#059669",
+  color: "#F3F4F6",
 
   ":hover": {
-    backgroundColor: "#1D4ED8",
+    backgroundColor: "#047857",
   },
 
   ":active": {
     outline: "none",
-    boxShadow: "0 0 0 3px rgba(37, 99, 235, 0.5)",
+    boxShadow: "0 0 0 3px rgba(5, 150, 105, 0.4)",
   },
 
   ":disabled": {
-    backgroundColor: "#60A5FA",
-    opacity: 0.7,
+    backgroundColor: "#475569",
+    opacity: 0.6,
   },
 });
 
