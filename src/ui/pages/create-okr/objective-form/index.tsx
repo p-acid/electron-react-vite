@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Code2, Brain, GraduationCap, Goal } from "lucide-react";
 import * as styles from "./style.css";
-import { Accordion, Form, Input, Textarea } from "@/ui/components";
+import { Accordion, Button, Form, Input, Textarea } from "@/ui/components";
 
 const examples = [
   {
@@ -52,7 +52,7 @@ function ObjectiveForm() {
         <Accordion.Item value="example">
           <Accordion.Trigger>
             <Goal size={18} />
-            목표 설정 예시 알아보기
+            목표 설정 예시
           </Accordion.Trigger>
           <Accordion.Content>
             <p className={styles.exampleDescription}>
@@ -102,6 +102,7 @@ function ObjectiveForm() {
           />
         </Form.Group>
       </Form.Root>
+      <Button>다음으로</Button>
     </div>
   );
 }

@@ -46,7 +46,7 @@ function GoalPage() {
             <h1 className={styles.title}>{goals.length} Goals</h1>
           </div>
           <Button size="sm" onClick={handleAddGoal}>
-            Create Goal
+            목표 생성하기
           </Button>
         </div>
       </header>

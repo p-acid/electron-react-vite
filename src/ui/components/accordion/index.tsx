@@ -34,7 +34,6 @@ function Root({
 
   return (
     <AccordionContext.Provider value={{ value, toggle }}>
-      {/* ARIA role 추가 */}
       <div
         className={styles.accordion}
         role="region"
