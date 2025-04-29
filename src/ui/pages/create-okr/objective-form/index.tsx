@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Code2, Brain, GraduationCap, Goal } from "lucide-react";
 import * as styles from "./style.css";
-import { Accordion, Button, Form, Input, Textarea } from "@/ui/components";
+import { Accordion, Form, Input, Textarea } from "@/ui/components";
 
 const examples = [
   {
@@ -102,7 +102,6 @@ function ObjectiveForm() {
           />
         </Form.Group>
       </Form.Root>
-      <Button>다음으로</Button>
     </div>
   );
 }
