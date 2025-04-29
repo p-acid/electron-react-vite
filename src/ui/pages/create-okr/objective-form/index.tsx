@@ -83,7 +83,7 @@ function ObjectiveForm() {
 
       <Form.Root>
         <Form.Group>
-          <Form.Label htmlFor="objective">Objective</Form.Label>
+          <Form.Label htmlFor="objective">목표</Form.Label>
           <Input
             id="objective"
             value={objective}
@@ -93,7 +93,7 @@ function ObjectiveForm() {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="description">Description</Form.Label>
+          <Form.Label htmlFor="description">설명</Form.Label>
           <Textarea
             id="description"
             value={description}

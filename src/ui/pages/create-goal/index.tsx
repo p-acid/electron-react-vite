@@ -11,14 +11,14 @@ const methodOptions = [
     id: "okr",
     title: "OKR",
     description:
-      "Set ambitious Objectives and measure progress through Key Results. Perfect for tracking measurable outcomes and maintaining focus.",
+      "목표와 핵심 결과를 통해 측정 가능한 성과를 추적하고 집중력을 유지하세요. 야심찬 목표 설정에 적합한 방법입니다.",
     icon: Key,
   },
   {
     id: "mandalart",
-    title: "Mandalart",
+    title: "만다라트",
     description:
-      "Achieve your goals through a systematic 3x3 grid approach. Break down your main goal into 8 sub-goals and create detailed action plans.",
+      "3x3 그리드 방식으로 체계적인 목표 달성을 도와줍니다. 주요 목표를 8개의 하위 목표로 나누고 상세한 실천 계획을 수립하세요.",
     icon: Grid3x3,
   },
 ];
@@ -46,9 +46,9 @@ function CreateGoalPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Select Goal Setting Method</h1>
+        <h1 className={styles.title}>목표 설정 방식 선택</h1>
         <p className={styles.description}>
-          Choose a method that best fits your goal setting style
+          당신의 목표 설정 스타일에 가장 잘 맞는 방법을 선택하세요
         </p>
       </header>
 
@@ -63,7 +63,7 @@ function CreateGoalPage() {
         ))}
       </div>
 
-      {selectedFramework && <Button onClick={handleNext}>Next</Button>}
+      {selectedFramework && <Button onClick={handleNext}>다음</Button>}
     </div>
   );
 }

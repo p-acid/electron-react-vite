@@ -12,21 +12,18 @@ interface Goal {
   method: string;
 }
 
-// 임시 데이터
 const goals: Goal[] = [
   {
     id: "1",
-    title: "Improve Development Skills",
-    description:
-      "Enhance frontend development skills and learn new technologies",
+    title: "개발 실력 향상하기",
+    description: "프론트엔드 개발 스킬을 향상시키고 새로운 기술을 학습하기",
     deadline: "2024-12-31",
-    method: "Mandalart",
+    method: "만다라트",
   },
   {
     id: "2",
-    title: "Health Management",
-    description:
-      "Create healthy lifestyle habits through regular exercise and diet",
+    title: "건강 관리",
+    description: "규칙적인 운동과 식단 관리를 통해 건강한 생활 습관 만들기",
     deadline: "2024-06-30",
     method: "OKR",
   },
@@ -43,7 +40,7 @@ function GoalPage() {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.title}>{goals.length} Goals</h1>
+          <h1 className={styles.title}>{goals.length}개의 목표</h1>
           <Button size="sm" onClick={handleAddGoal}>
             목표 생성하기
           </Button>
