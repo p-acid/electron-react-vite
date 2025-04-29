@@ -18,6 +18,13 @@ export const label = style({
   color: "#E0E0E0",
 });
 
+export const required = style({
+  fontSize: "0.875rem",
+  fontWeight: "500",
+  color: "#047857",
+  marginRight: "0.125rem",
+});
+
 export const description = style({
   fontSize: "0.75rem",
   color: "#94A3B8",

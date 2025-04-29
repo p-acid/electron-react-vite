@@ -9,3 +9,9 @@ export const pageWrapper = style({
   gap: "2rem",
   padding: "2rem",
 });
+
+export const navigation = style({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+});

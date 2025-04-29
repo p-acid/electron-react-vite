@@ -1,6 +1,10 @@
+import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Button, Stepper, useStepper } from "@/ui/components";
-import ObjectiveForm from "./objective-form";
+import ObjectiveForm from "./ui/objective-form";
 import * as styles from "./style.css";
+import { okrFormSchema, OkrFormSchema } from "./types/okr-form-schema";
 
 const STEPPER_MOCK = [
   {
@@ -18,21 +22,42 @@ const STEPPER_MOCK = [
 ];
 
 function CreateOkrPage() {
+  const methods = useForm<OkrFormSchema>({
+    resolver: zodResolver(okrFormSchema),
+  });
+
+  const count = STEPPER_MOCK.length;
+
   const { currentStep, onChange } = useStepper({
-    count: STEPPER_MOCK.length,
+    count,
   });
 
   return (
     <main className={styles.pageWrapper}>
       <Stepper.Root currentStep={currentStep}>
-        {STEPPER_MOCK.map((step, index) => (
-          <Stepper.Step key={step.id} index={index}>
-            {step.label}
-          </Stepper.Step>
+        {STEPPER_MOCK.map((step) => (
+          <Stepper.Step key={step.id}>{step.label}</Stepper.Step>
         ))}
       </Stepper.Root>
-      <ObjectiveForm />
-      <Button onClick={() => onChange(currentStep + 1)}>다음으로</Button>
+
+      <FormProvider {...methods}>
+        <ObjectiveForm />
+      </FormProvider>
+
+      <div className={styles.navigation}>
+        <Button
+          disabled={currentStep <= 0}
+          onClick={() => onChange(currentStep - 1)}
+        >
+          이전으로
+        </Button>
+        <Button
+          disabled={currentStep >= count - 1}
+          onClick={() => onChange(currentStep + 1)}
+        >
+          다음으로
+        </Button>
+      </div>
     </main>
   );
 }

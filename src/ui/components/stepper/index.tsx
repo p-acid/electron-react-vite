@@ -1,4 +1,12 @@
-import { createContext, useContext, useMemo, ReactNode, Children } from "react";
+import {
+  createContext,
+  useContext,
+  useMemo,
+  ReactNode,
+  Children,
+  isValidElement,
+  cloneElement,
+} from "react";
 import { Check } from "lucide-react";
 import * as styles from "./style.css.ts";
 import type { Step, Status, StepperContextValue } from "./types";
@@ -30,17 +38,24 @@ function Root({ currentStep, children }: RootProps) {
 
   return (
     <StepperContext.Provider value={value}>
-      <div className={styles.stepper}>{children}</div>
+      <div className={styles.stepper}>
+        {Children.map(children, (child, index) => {
+          if (isValidElement<StepProps>(child) && child.type === Step) {
+            return cloneElement(child, { index });
+          }
+          return child;
+        })}
+      </div>
     </StepperContext.Provider>
   );
 }
 
 interface StepProps {
-  index: number;
+  index?: number;
   children: ReactNode;
 }
 
-function Step({ children, index }: StepProps) {
+function Step({ children, index = 0 }: StepProps) {
   const context = useContext(StepperContext);
   if (!context) throw new Error("StepIndicator must be used within Stepper");
 

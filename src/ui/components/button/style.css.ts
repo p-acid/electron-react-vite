@@ -23,6 +23,8 @@ const baseStyle = style({
   },
 
   ":disabled": {
+    boxShadow: "none",
+    cursor: "auto",
     backgroundColor: "#475569",
     opacity: 0.6,
   },
@@ -47,6 +49,15 @@ export const button = recipe({
         height: "48px",
         padding: "0 1.5rem",
         fontSize: "1rem",
+      },
+    },
+
+    width: {
+      full: {
+        width: "100%",
+      },
+      fit: {
+        width: "fit-content",
       },
     },
   },

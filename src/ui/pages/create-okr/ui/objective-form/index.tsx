@@ -1,7 +1,8 @@
-import { ChangeEvent, useState } from "react";
 import { Code2, Brain, GraduationCap, Goal } from "lucide-react";
 import * as styles from "./style.css";
 import { Accordion, Form, Input, Textarea } from "@/ui/components";
+import { useFormContext } from "react-hook-form";
+import { OkrFormSchema } from "../../types/okr-form-schema";
 
 const examples = [
   {
@@ -25,16 +26,7 @@ const examples = [
 ];
 
 function ObjectiveForm() {
-  const [objective, setObjective] = useState("");
-  const [description, setDescription] = useState("");
-
-  const handleObjectiveChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setObjective(e.target.value);
-  };
-
-  const handleDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setDescription(e.target.value);
-  };
+  const { register } = useFormContext<OkrFormSchema>();
 
   return (
     <div className={styles.container}>
@@ -81,27 +73,25 @@ function ObjectiveForm() {
         </Accordion.Item>
       </Accordion.Root>
 
-      <Form.Root>
-        <Form.Group>
-          <Form.Label htmlFor="objective">목표</Form.Label>
-          <Input
-            id="objective"
-            value={objective}
-            onChange={handleObjectiveChange}
-            placeholder="달성하고자 하는 목표를 입력하세요"
-          />
-        </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="objective" required>
+          목표
+        </Form.Label>
+        <Input
+          {...register("goal.title")}
+          id="objective"
+          placeholder="달성하고자 하는 목표를 입력하세요"
+        />
+      </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="description">설명</Form.Label>
-          <Textarea
-            id="description"
-            value={description}
-            onChange={handleDescriptionChange}
-            placeholder="목표에 대한 상세 설명을 입력하세요"
-          />
-        </Form.Group>
-      </Form.Root>
+      <Form.Group>
+        <Form.Label htmlFor="description">설명</Form.Label>
+        <Textarea
+          {...register("goal.description")}
+          id="description"
+          placeholder="목표에 대한 상세 설명을 입력하세요"
+        />
+      </Form.Group>
     </div>
   );
 }

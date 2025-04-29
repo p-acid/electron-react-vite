@@ -27,16 +27,27 @@ const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(
   }
 );
 
-type FormLabelProps = ComponentPropsWithRef<"label">;
+interface FormLabelProps extends ComponentPropsWithRef<"label"> {
+  required?: boolean;
+}
 
 const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
-  ({ htmlFor, ...props }, ref) => {
+  ({ htmlFor, required = false, children, ...props }, ref) => {
     const { id } = useContext(FormContext);
     const generatedId = useId();
     const labelFor = htmlFor || id || generatedId;
 
     return (
-      <label ref={ref} className={styles.label} htmlFor={labelFor} {...props} />
+      <label
+        ref={ref}
+        className={styles.label}
+        htmlFor={labelFor}
+        aria-required={required}
+        {...props}
+      >
+        {required && <span className={styles.required}>*</span>}
+        {children}
+      </label>
     );
   }
 );
