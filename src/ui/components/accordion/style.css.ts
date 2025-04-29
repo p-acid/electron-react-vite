@@ -64,10 +64,4 @@ export const contentInner = style({
 
 export const chevron = style({
   transition: "transform 200ms ease",
-
-  selectors: {
-    '[data-state="open"] &': {
-      transform: "rotate(180deg)",
-    },
-  },
 });

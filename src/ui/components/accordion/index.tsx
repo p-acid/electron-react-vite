@@ -84,10 +84,16 @@ function AccordionTrigger({ children }: AccordionTriggerProps) {
       aria-controls={contentId}
       type="button"
       role="button"
-      aria-label={`${children}${isOpen ? " 접기" : " 펼치기"}`}
     >
       <span className={styles.triggerInner}>{children}</span>
-      <ChevronDown className={styles.chevron} size={16} aria-hidden="true" />
+      <ChevronDown
+        className={styles.chevron}
+        size={16}
+        aria-hidden="true"
+        style={{
+          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+        }}
+      />
     </button>
   );
 }
