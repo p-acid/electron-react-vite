@@ -6,6 +6,7 @@ import {
   useId,
 } from "react";
 import * as styles from "./style.css";
+import clsx from "clsx";
 
 const FormContext = createContext<{ id?: string }>({});
 
@@ -22,8 +23,10 @@ const Form = forwardRef<HTMLFormElement, FormProps>(({ id, ...props }, ref) => {
 type FormGroupProps = ComponentPropsWithRef<"div">;
 
 const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(
-  ({ ...props }, ref) => {
-    return <div ref={ref} className={styles.group} {...props} />;
+  ({ className, ...props }, ref) => {
+    return (
+      <div ref={ref} className={clsx(styles.group, className)} {...props} />
+    );
   }
 );
 

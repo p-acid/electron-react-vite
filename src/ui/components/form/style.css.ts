@@ -9,17 +9,18 @@ export const form = style({
 export const group = style({
   display: "flex",
   flexDirection: "column",
-  gap: "0.5rem",
+  gap: "0.625rem",
+  width: "100%",
 });
 
 export const label = style({
-  fontSize: "0.875rem",
+  fontSize: "0.75rem",
   fontWeight: "500",
   color: "#E0E0E0",
 });
 
 export const required = style({
-  fontSize: "0.875rem",
+  fontSize: "0.75rem",
   fontWeight: "500",
   color: "#047857",
   marginRight: "0.125rem",

@@ -9,7 +9,6 @@ export const okrFormSchema = z.object({
   subGoals: z.array(
     z.object({
       title: z.string().min(1, { message: "제목을 입력해주세요." }),
-      description: z.string().optional(),
       dueDate: z.date().optional(),
     })
   ),

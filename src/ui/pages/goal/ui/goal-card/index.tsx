@@ -19,13 +19,13 @@ function GoalCard({
     <Card.Root selectable {...props}>
       <Card.Header className={styles.header}>
         <Card.Title>{title}</Card.Title>
-        <Badge variant="primary">{method}</Badge>
+        <div className={styles.badges}>
+          <Badge variant="primary">{method}</Badge>
+          <Badge>{new Date(deadline).toLocaleDateString()} 까지</Badge>
+        </div>
       </Card.Header>
       <Card.Body>
         <Card.Description>{description}</Card.Description>
-        <time className={styles.deadline}>
-          Deadline: {new Date(deadline).toLocaleDateString()}
-        </time>
       </Card.Body>
     </Card.Root>
   );

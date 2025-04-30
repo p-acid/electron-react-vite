@@ -12,3 +12,9 @@ export const deadline = style({
   fontWeight: 400,
   color: "#94A3B8",
 });
+
+export const badges = style({
+  display: "flex",
+  alignItems: "center",
+  gap: "0.5rem",
+});

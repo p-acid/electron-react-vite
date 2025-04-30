@@ -1,9 +1,9 @@
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFieldArray, useFormContext, Controller } from "react-hook-form";
 import Objective from "../objective";
 import * as styles from "./style.css";
 import { OkrFormSchema } from "../../types/okr-form-schema";
 import { Goal, Key, Plus, Trash2 } from "lucide-react";
-import { Accordion, Button, Input, Textarea } from "@/ui/components";
+import { Accordion, Button, Form, Input } from "@/ui/components";
 import { KEY_RESULT_EXAMPLES } from "../../constants/examples";
 import KeyResult from "../key-result";
 
@@ -17,7 +17,7 @@ function KeyResultsForm() {
   const goal = getValues("goal");
 
   const handleAdd = () => {
-    append({ title: "", description: "", dueDate: new Date() });
+    append({ title: "", dueDate: new Date() });
   };
 
   return (
@@ -62,34 +62,50 @@ function KeyResultsForm() {
         </Accordion.Item>
       </Accordion.Root>
 
-      {fields.map((field, index) => (
-        <div key={field.id} className={styles.keyResultField}>
-          <div className={styles.keyResultHeader}>
-            <div className={styles.keyResultNumber}>{index + 1}</div>
+      <div className={styles.keyResultForms}>
+        {fields.map((field, index) => (
+          <div key={field.id} className={styles.keyResultForm}>
+            <Form.Group>
+              <Form.Label>핵심 지표 제목</Form.Label>
+              <Input
+                {...register(`subGoals.${index}.title`)}
+                placeholder="핵심 지표 제목"
+              />
+            </Form.Group>
+            <Form.Group className={styles.keyResultDateGroup}>
+              <Form.Label>마감일</Form.Label>
+              <Controller
+                control={control}
+                name={`subGoals.${index}.dueDate`}
+                render={({ field: { onChange, value } }) => (
+                  <Input
+                    type="date"
+                    value={
+                      value ? new Date(value).toISOString().split("T")[0] : ""
+                    }
+                    onChange={(e) => {
+                      const date = e.target.value
+                        ? new Date(e.target.value)
+                        : null;
+                      onChange(date);
+                    }}
+                  />
+                )}
+              />
+            </Form.Group>
             <Button
-              size="sm"
+              size="icon"
+              variant="outline"
               onClick={() => remove(index)}
               disabled={fields.length === 1}
             >
-              <Trash2 size={16} />
+              <Trash2 size={18} />
             </Button>
           </div>
+        ))}
+      </div>
 
-          <div className={styles.keyResultInputs}>
-            <Input
-              {...register(`subGoals.${index}.title`)}
-              placeholder="핵심 지표 제목"
-            />
-            <Textarea
-              {...register(`subGoals.${index}.description`)}
-              placeholder="핵심 지표 설명"
-            />
-            <Input type="date" {...register(`subGoals.${index}.dueDate`)} />
-          </div>
-        </div>
-      ))}
-
-      <Button onClick={handleAdd} size="sm">
+      <Button onClick={handleAdd} size="md" width="full" variant="outline">
         <Plus size={16} />
         핵심 지표 추가
       </Button>

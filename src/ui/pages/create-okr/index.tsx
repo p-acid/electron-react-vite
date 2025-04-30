@@ -49,6 +49,14 @@ const STEPPER_MOCK = [
 function CreateOkrPage() {
   const methods = useForm<OkrFormSchema>({
     resolver: zodResolver(okrFormSchema),
+    defaultValues: {
+      subGoals: [
+        {
+          title: "",
+          dueDate: new Date(),
+        },
+      ],
+    },
   });
 
   const count = STEPPER_MOCK.length;

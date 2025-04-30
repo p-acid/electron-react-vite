@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: "1.75rem",
+  gap: "2rem",
 });
 
 export const description = style({
@@ -32,45 +32,19 @@ export const keyResults = style({
   gap: "0.625rem",
 });
 
-export const keyResultsForm = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: "1.5rem",
-  marginTop: "2rem",
-});
-
-export const keyResultField = style({
-  display: "flex",
-  gap: "1rem",
-  padding: "1.5rem",
-  backgroundColor: "#1E2F28",
-  borderRadius: "0.75rem",
-});
-
-export const keyResultHeader = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: "0.5rem",
-  alignItems: "center",
-});
-
-export const keyResultNumber = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "2rem",
-  height: "2rem",
-  backgroundColor: "#2D3F38",
-  borderRadius: "50%",
-  color: "#34D399",
-  fontSize: "0.875rem",
-  fontWeight: "500",
-  flexShrink: 0,
-});
-
-export const keyResultInputs = style({
+export const keyResultForms = style({
   display: "flex",
   flexDirection: "column",
   gap: "1rem",
+});
+
+export const keyResultForm = style({
+  display: "flex",
+  gap: "0.75rem",
+  alignItems: "flex-end",
   flex: 1,
+});
+
+export const keyResultDateGroup = style({
+  width: "300px",
 });
